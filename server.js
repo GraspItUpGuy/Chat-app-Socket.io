@@ -17,7 +17,8 @@ io.on('connection',(socket)=>{
    
     socket.on('send_msg',(data)=>{
         
-        console.log("recieved message = " + data.message)
+        // console.log("recieved message = " + data.message)
+        io.emit('recv_msg', data)
     })
 })
 

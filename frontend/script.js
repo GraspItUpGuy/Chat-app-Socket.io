@@ -17,5 +17,9 @@ $(function(){
         let msg = msgbox.val()
         socket.emit('send_msg',{message : msgbox.val()})
     })
+ 
+ socket.on('recv_msg', (data)=>{
+     msglist.append('<li>' + data.message + '</li>')
+ })
 
 })
