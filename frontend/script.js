@@ -20,19 +20,25 @@ $(function(){
     let user = ''
 
 
-    sendbtn.click(function(){
+    sendbtn.click(()=>{
         let msg = msgbox.val()
-        socket.emit('send_msg',{message : msgbox.val()})
+        $('#msgbox').val("")
+       
+        socket.emit('send_msg',{
+           user : user,
+             message : msgbox.val()
+       })
     })
 
-    loginbtn.click(function(){
+    loginbtn.click(()=>{
         user = loginBox.val()
         chatDiv.show()
         loginDiv.hide()
     })
  
  socket.on('recv_msg', (data)=>{
-     msglist.append('<li>' + data.message + '</li>')
+     console.log(data.message)
+     msglist.append('<li>' + data.user + ":" + data.message  + '</li>')
  })
 
 })
