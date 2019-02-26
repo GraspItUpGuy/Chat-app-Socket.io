@@ -14,6 +14,11 @@ app.use('/', express.static(path.join(__dirname, 'frontend')))
 io.on('connection',(socket)=>{
     console.log("New socket formed from " + socket.id)
     socket.emit('connected')
+   
+    socket.on('send_msg',(data)=>{
+        
+        console.log("recieved message = " + data.message)
+    })
 })
 
 

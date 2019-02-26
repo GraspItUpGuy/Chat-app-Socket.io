@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			 ></script>
     <script src="/socket.io/socket.io.js"></script>
+
     <title>Socket.IO Chat App</title>
 
 </head>
 <body>
     <h1>Socket Io Example</h1>
-
+    <input type="text" id = "msgbox">
+    <button id = "sendmsg">Send Message</button>
+   <ul id="msglist"></ul>
 
     <script src = "script.js"></script>
 </body>
