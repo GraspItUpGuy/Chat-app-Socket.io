@@ -12,10 +12,23 @@ $(function(){
     let msglist = $('#msglist')
     let msgbox = $('#msgbox')
     let sendbtn = $('#sendmsg')
+    let loginBox = $('#loginbox')
+    let loginbtn = $('#loginbtn')
+    let loginDiv = $('#login-div')
+    let chatDiv = $('#chat-div')
+
+    let user = ''
+
 
     sendbtn.click(function(){
         let msg = msgbox.val()
         socket.emit('send_msg',{message : msgbox.val()})
+    })
+
+    loginbtn.click(function(){
+        user = loginBox.val()
+        chatDiv.show()
+        loginDiv.hide()
     })
  
  socket.on('recv_msg', (data)=>{
