@@ -1,5 +1,3 @@
-// alert('hello Frontend people')
-
 let socket = io()
 socket.on('connected', ()=>{
     
@@ -20,25 +18,22 @@ $(function(){
     let user = ''
 
 
-    sendbtn.click(()=>{
+    sendbtn.click(function(){
         let msg = msgbox.val()
-        $('#msgbox').val("")
-       
         socket.emit('send_msg',{
-           user : user,
-             message : msgbox.val()
-       })
+            message : msgbox.val(),
+            user : loginBox.val()
+         })
     })
 
-    loginbtn.click(()=>{
+    loginbtn.click(function(){
         user = loginBox.val()
         chatDiv.show()
         loginDiv.hide()
     })
  
  socket.on('recv_msg', (data)=>{
-     console.log(data.message)
-     msglist.append('<li>' + data.user + ":" + data.message  + '</li>')
+     msglist.append('<li>' + data.user + ": " +  data.message + '</li>')
  })
 
 })
